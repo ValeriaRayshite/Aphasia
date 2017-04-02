@@ -1,0 +1,247 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;	
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=cyrillic');
+
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+
+header {
+    box-sizing: border-box;
+    text-align: justify;
+    width: 100%;
+    height: 70px;
+    padding: 2% 2%;
+   
+    border-bottom: 2px solid  #757575;
+}
+
+
+header nav {
+    display: inline-block;
+    
+
+}
+
+
+
+
+ 
+
+header nav a {
+
+    width: 115px;
+    height: 20px;
+    background: #99bddc;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font: 1.2em 'Open Sans Condensed', sans-serif;
+}
+
+header nav a:hover {
+    background: #2f4e73;
+}
+
+a {
+    display: inline;
+    text-decoration: none;
+    width: 90px;
+    height: 10px;
+    background: #99bddc;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font: .8em 'Open Sans Condensed', sans-serif;
+    cursor: pointer;
+}
+
+a:hover {
+    background: #2f4e73;
+}
+
+#add input[type=submit] {
+    margin: 3%;
+    display: block;
+    width: 115px;
+    height: 50px;
+    background: #99bddc;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font: 1.2em 'Open Sans Condensed', sans-serif;
+    box-sizing: border-box;
+    border: 0;
+    cursor: pointer;
+}
+
+#add input[type=submit]:hover, input[type=submit]#delete:hover {
+    background: #2f4e73;
+}
+
+
+#content {
+    position: relative;
+	width: 100%;
+
+}
+
+/* Add-form */
+
+fieldset {
+    display: inline;
+}
+
+#en, #ru {
+    position: relative;
+    
+    width: 50%;
+    box-sizing: border-box;
+}
+
+#ru {
+   
+    padding: 100px 3% 20px 1%;
+}
+
+#en {
+    float: left;
+    padding: 100px 1% 20px 3%; 
+}
+
+form#add {
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    font: 1.2em 'Open Sans Condensed', sans-serif;
+}
+
+input.content {
+    width: 100%;
+    height: 50px;
+    border: none;
+    padding: 10px;
+    font-size: 1em;  
+
+}
+
+
+
+input.content:focus {
+    outline: none;
+}
+
+textarea {
+    font-size: 1.2em; 
+    resize: none;
+    height: 500px;
+    margin-top: 50px;
+}
+
+select {
+    clear: both;
+    padding: 8px 10px;
+    margin: 20px 3% 5px;
+    display: block;
+    
+    border-radius: 4px;
+    
+}
+
+#checkbox {
+    display: block;
+    margin: 10px 3% 5px;
+}
+#checkbox label {
+    display: inline-block;
+}
+#checkbox input[type=checkbox] + label{
+    display: inline;
+    color: #757575;
+}
+
+#checkbox input[type=checkbox]:checked + label{
+    color: #000;
+}
+
+
+
+table {
+    box-sizing: border-box;
+    padding: 100px 5%;
+    font: 1.2em 'Open Sans Condensed', sans-serif;
+}
+
+table, tr {
+    height: 50px;
+    width: 100%;
+}
+    
+
+tr td.main {
+    
+    
+}
+
+tbody tr:nth-child(odd) {
+    background: #f0f0f0; /* Зебра */
+   }
+
+
+td { 
+    text-align: center; /* Выравнивание по центру */
+
+   }
+   td, th {
+    padding: 5px; /* Поля в ячейках */
+   }
+
+td a {
+    margin: 5px;
+}
+
+td#title {
+    width: 50%;
+}
+
+td img {
+    width: 20px;
+}
+
+table form {
+    display: inline;
+}
+
+input[type=submit]#delete {
+    border: 0;
+    
+    background: #99bddc;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font: .8em 'Open Sans Condensed', sans-serif;
+    cursor: pointer;
+}
+

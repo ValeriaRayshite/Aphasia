@@ -1,0 +1,72 @@
+html, body {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+	main{
+		width: 50%;
+		color: #304e74;
+		font: 1.1em 'Open Sans Condensed', sans-serif;
+		margin: 10 auto;
+		float: left;
+		padding:5% 3% 10%;
+		box-sizing: border-box;
+	
+	}
+
+	p{
+		line-height: 170%;
+	}
+
+	nav {
+		float: left;
+		width: 25%;
+		padding:  0.5%;
+		font: 1.2em 'Open Sans Condensed', sans-serif;
+		box-sizing: border-box;
+	}
+
+	aside {
+		right: 0;
+		position: fixed;
+		height: 100%;
+		width: 25%;
+		padding: 0.5%;
+		float: right;
+		font: 1em 'Open Sans Condensed', sans-serif;
+		box-sizing: border-box;
+		
+	}
+
+	ul li {
+		line-height: 170%;
+	}
+
+	img {
+		width: 35%;
+		position: relative;
+		right: -50%;
+		top: 20px;
+		margin-bottom: 10%;
+	}
+
+	aside ul li {
+		line-height: 300%;
+		visibility: hidden;
+	}
+
+
+footer {
+	position: relative;
+	margin-top: -10vh; 
+	height: 10vh;
+	clear:both;
+}
+
+#menu {
+	width: 30%;
+	right: -60%;
+	
+}	
+
