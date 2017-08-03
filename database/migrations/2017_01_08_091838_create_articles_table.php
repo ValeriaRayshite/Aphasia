@@ -17,9 +17,9 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->string('slug');
             $table->string('section');
-            $table->string('title')->unique();
-            $table->string('title_ru')->nullable();
-            $table->mediumText('content');
+            $table->string('title_en')->nullable()->unique();
+            $table->string('title_ru')->nullable()->unique();
+            $table->mediumText('content_en')->nullable();
             $table->mediumText('content_ru')->nullable();
             
             $table->boolean('published')->default(false);

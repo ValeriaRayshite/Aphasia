@@ -22,10 +22,10 @@
 
 <div>
 	<ul class="nav">
-		<li><a href="#">О ПРОБЛЕМЕ<br> АФАЗИИ</a></li>
-		<li><a href="#">СПЕЦИАЛИСТАМ<br>И СТУДЕНТАМ</a></li>
-		<li><a href="#">ПАЦИЕНТАМ И<br>ИХ БЛИЗКИМ</a></li>
-		<li><a href="#">О ПРОЕКТЕ</a></li>
+		<li><a href="{{ URL::route('section', array('lang'=>'ru', 'unit'=>'About-the-problem-of-aphasia')) }}">О ПРОБЛЕМЕ<br> АФАЗИИ</a></li>
+		<li><a href="{{ URL::route('section', array('lang'=>'ru', 'unit'=>'For-professionals-and-students')) }}">СПЕЦИАЛИСТАМ<br>И СТУДЕНТАМ</a></li>
+		<li><a href="{{ URL::route('section', array('lang'=>'ru', 'unit'=>'For-patients-and-their-families')) }}">ПАЦИЕНТАМ И<br>ИХ БЛИЗКИМ</a></li>
+		<li><a href="{{ URL::route('section', array('lang'=>'ru', 'unit'=>'About-the-project')) }}">О ПРОЕКТЕ</a></li>
 	</ul>
 </div>
 

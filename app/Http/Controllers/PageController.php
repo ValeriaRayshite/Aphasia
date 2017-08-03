@@ -30,16 +30,16 @@ class PageController extends Controller
 
     }else if ($unit == 'About-the-problem-of-aphasia') {
    		  $items = DB::table('articles')->where('section', '=', 'About-the-problem-of-aphasia')->get();
-   			$rootOfSections = DB::table('sections')->where('slug', '=', 'About-the-problem-of-aphasia')->get();
+   			$rootOfSections = DB::table('sections')->where('section', '=', 'About-the-problem-of-aphasia')->get();
 
    	} else if ($unit == 'For-professionals-and-students') {
    		$items = DB::table('articles')->where('section', '=', 'For-professionals-and-students')->get();
-   		$rootOfSections = DB::table('sections')->where('slug', '=', 'For-professionals-and-students')->get();
+   		$rootOfSections = DB::table('sections')->where('section', '=', 'For-professionals-and-students')->get();
       $slug = $unit;
 
    	} else {
    		$items = DB::table('articles')->where('section', '=', 'About-the-project')->get();
-   		$rootOfSections = DB::table('sections')->where('slug', '=', 'About-the-project')->get();
+   		$rootOfSections = DB::table('sections')->where('section', '=', 'About-the-project')->get();
    	}
 
 

@@ -15,7 +15,7 @@
         <ul>
             @if ($unit != 'For-patients-and-their-families') 
                 @foreach ($rootOfSections as $rootOfSection)
-                <li><a href="{{ URL::route('section', array('lang'=>'ru', 'unit'=>$rootOfSection->slug)) }}">{{ $rootOfSection->section_ru }}</a></li>
+                <li><a href="{{ URL::route('section', array('lang'=>'ru', 'unit'=>$rootOfSection->section)) }}">{{ $rootOfSection->title_ru }}</a></li>
             @endforeach
             @else
                 <li><a href="{{ URL::route('section', array('lang'=>'ru', 'unit'=>$unit)) }}">{{ $rootOfSections }}</a></li>

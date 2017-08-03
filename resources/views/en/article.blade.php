@@ -4,7 +4,7 @@
 @section('content')
 
 	@foreach ($article as $article) 
-    	{!! $article->content !!}
+    	{!! $article->content_en !!}
 	@endforeach
     
 @endsection 

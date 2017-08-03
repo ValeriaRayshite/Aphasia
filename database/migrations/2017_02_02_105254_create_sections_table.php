@@ -16,10 +16,10 @@ class CreateSectionsTable extends Migration
         Schema::create('sections', function (Blueprint $table) {
             $table->increments('id');
             $table->string('section')->unique();
-            $table->string('fifst_letter')->nullable();
-            $table->string('fifst_letter_ru')->nullable();
-            $table->mediumText('content');
-            $table->mediumText('content_ru')->nullable();
+            $table->string('title_en');
+            $table->string('title_ru');
+            $table->mediumText('content_en');
+            $table->mediumText('content_ru');
         });
     }
 

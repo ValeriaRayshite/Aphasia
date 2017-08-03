@@ -20,10 +20,10 @@
 <div>
 	<ul class="nav">
 	 
-		<li><a href="#">ABOUT THE PROBLEM<br>OF APHASIA</a></li>
-		<li><a href="#">FOR PROFESSIONALS<br>AND STUDENTS</a></li>
-		<li><a href="#">FOR PATIENTS<br>AND THEIR FAMILIES</a></li>
-		<li><a href="#">ABOUT<br>THE PROJECT</a></li>
+		<li><a href="{{ URL::route('section', array('lang'=>'en', 'unit'=>'About-the-problem-of-aphasia')) }}">ABOUT THE PROBLEM<br>OF APHASIA</a></li>
+		<li><a href="{{ URL::route('section', array('lang'=>'en', 'unit'=>'For-professionals-and-students')) }}">FOR PROFESSIONALS<br>AND STUDENTS</a></li>
+		<li><a href="{{ URL::route('section', array('lang'=>'en', 'unit'=>'For-patients-and-their-families')) }}">FOR PATIENTS<br>AND THEIR FAMILIES</a></li>
+		<li><a href="{{ URL::route('section', array('lang'=>'en', 'unit'=>'About-the-project')) }}">ABOUT<br>THE PROJECT</a></li>
 	</ul>
 </div>
 
