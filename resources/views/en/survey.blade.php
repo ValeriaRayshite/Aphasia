@@ -52,7 +52,9 @@ function hideInputNamedReaction() {
 	
 
 	{{ Form::label('you', 'You are') }}
-	{{ Form::text('you') }}
+	{{ Form::radio('you', 'Patient') }} Patient<br>
+        {{ Form::radio('you', 'Relative or close person') }} Relative or close person<br>
+
 
 
 	{{ Form::label('email', 'E-Mail') }}
@@ -149,7 +151,7 @@ function hideInputNamedReaction() {
 	{{ Form::text('reaction1', null, array('id' => 'hidden3', 'style' => 'display: none')) }}
 
 
-	{{ Form::label('information', 'More information') }}
+	{{ Form::label('information', 'More information and/or your questions') }}
 	{{ Form::textarea('information', null, array('rows' => '10', 'cols' => '30')) }}
 	
 	

@@ -51,8 +51,8 @@ function hideInputNamedReaction() {
 	
 
 	{{ Form::label('you', 'Вы являетесь') }}
-	{{ Form::text('you') }}
-
+	{{ Form::radio('you', 'Patient') }} Пациент<br>
+        {{ Form::radio('you', 'Relative or close person') }} Родственник или близкий человек<br>
 
 	{{ Form::label('email', 'E-Mail') }}
 	{{ Form::text('email') }}
@@ -149,7 +149,7 @@ function hideInputNamedReaction() {
 	{{ Form::text('reaction', null, array('id' => 'hidden3', 'style' => 'display: none')) }}
 
 
-	{{ Form::label('information', 'Дополнительные сведения') }}
+	{{ Form::label('information', 'Дополнительные сведения и/или ваши вопросы') }}
 	{{ Form::textarea('information', null, array('rows' => '10', 'cols' => '30')) }}
 	
 	
