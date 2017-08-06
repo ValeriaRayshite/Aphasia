@@ -7,7 +7,7 @@
 			
 			<tr>
 				<td id="1">{{ $i++ }}</td>
-				<td id="title">{{ $article->title}}</td>
+				<td id="title">{{ $article->title_en}}</td>
 				<td id="category">{{ $article->section }}</td>
 				
 				@if (URL::current() == 'http://127.0.0.1:8000/all')

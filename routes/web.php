@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -33,6 +34,10 @@ Route::get('/survey', ['as' => 'survey', function() {
 	return view('survey');
 }]);
 
+
+Route::get('/{lang}/{unit}/contact', [
+  'as' => 'contact', 'uses' => 'ContactController@show'
+]);
 
 
 Route::get('/{lang}/{unit}/{slug}', [

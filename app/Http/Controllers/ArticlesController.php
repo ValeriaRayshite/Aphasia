@@ -62,18 +62,18 @@ class ArticlesController extends Controller
     public function store(HttpRequest $request)
     {
         $this->validate($request, [
-            'title' => 'required|unique:articles,title',
+            'title_en' => 'required|unique:articles,title_en',
             'title_ru' => 'required|unique:articles,title_ru',
-            'content' => 'required',
+            'content_en' => 'required',
             'content_ru' => 'required',
    ]);
 
         $article = new Article;
         $article->slug = str_slug("'" . $request->title . "'", '-');
         $article->section = $request->section;
-        $article->title = $request->title;
+        $article->title_en = $request->title_en;
         $article->title_ru = $request->title_ru;
-        $article->content = $request->content;
+        $article->content_en = $request->content_en;
         $article->content_ru = $request->content_ru;
         $article->published = $request->published;
 
@@ -103,11 +103,11 @@ class ArticlesController extends Controller
            
 
         } else if ($unit == 'For-professionals-and-students') {
-            $items = DB::table('articles')->where('section', '=', 'For-professionals-and-students')->get();
+            $items = Article::published()->where('section', '=', 'For-professionals-and-students')->get();
             $rootOfSections = DB::table('sections')->where('section', '=', 'For-professionals-and-students')->get();
 
         } else if ($unit == 'For-patients-and-their-families') {
-            $items = DB::table('articles')->where('section', '=', 'For-patients-and-their-families')->get();
+            $items = Article::published()->where('section', '=', 'For-patients-and-their-families')->get();
             $rootOfSections = DB::table('sections')->where('section', '=', 'For-patients-and-their-families')->get();
             $article = Article::published()->where('slug', $slug)->get(); 
 
@@ -124,7 +124,7 @@ class ArticlesController extends Controller
         }
 
         } else {
-            $items = DB::table('articles')->where('section', '=', 'About-the-project')->get();
+            $items = Article::published()->where('section', '=', 'About-the-project')->get();
             $rootOfSections = DB::table('sections')->where('section', '=', 'About-the-project')->get();
         }
 
@@ -166,9 +166,9 @@ class ArticlesController extends Controller
     public function update(HttpRequest $request, $id)
     {
         $this->validate($request, [
-            'title' => 'required',
+            'title_en' => 'required',
             'title_ru' => 'required',
-            'content' => 'required',
+            'content_en' => 'required',
             'content_ru' => 'required',
         ]);
         Article::find($id)->update($request->all());

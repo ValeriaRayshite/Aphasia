@@ -21,10 +21,10 @@
     	<fieldset id="en">
 		<h2>En</h2>
 		 
-		{!! Form::text('title', null, array('placeholder'=>'Title', 'class'=>'content')) !!} <br>
+		{!! Form::text('title_en', null, array('placeholder'=>'Title', 'class'=>'content')) !!} <br>
 
 	
-		{!! Form::textarea('content', null, array('class'=>'content')) !!}<br>
+		{!! Form::textarea('content_en', null, array('class'=>'content')) !!}<br>
 
 
     	</fieldset>

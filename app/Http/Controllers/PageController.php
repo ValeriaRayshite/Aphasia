@@ -4,6 +4,7 @@ namespace Aphasia\Http\Controllers;
 
 use Illuminate\Support\Facades\Request;
 use Aphasia\Models\Page;
+use Aphasia\Models\Article;
 use DB;
 
 
@@ -14,7 +15,7 @@ class PageController extends Controller
   public function root($lang, $unit) {
   
    	if ($unit == 'For-patients-and-their-families') {
-      $items = DB::table('articles')->where('section', '=', 'For-patients-and-their-families')->get();
+      $items = Article::published()->where('section', '=', 'For-patients-and-their-families')->get();
 
       if ($lang == 'en') {
         $rootOfSections = 'For patients and their families';
@@ -29,16 +30,16 @@ class PageController extends Controller
     }
 
     }else if ($unit == 'About-the-problem-of-aphasia') {
-   		  $items = DB::table('articles')->where('section', '=', 'About-the-problem-of-aphasia')->get();
+   		  $items = Article::published()->where('section', '=', 'About-the-problem-of-aphasia')->get();
    			$rootOfSections = DB::table('sections')->where('section', '=', 'About-the-problem-of-aphasia')->get();
 
    	} else if ($unit == 'For-professionals-and-students') {
-   		$items = DB::table('articles')->where('section', '=', 'For-professionals-and-students')->get();
+   		$items = Article::published()->where('section', '=', 'For-professionals-and-students')->get();
    		$rootOfSections = DB::table('sections')->where('section', '=', 'For-professionals-and-students')->get();
       $slug = $unit;
 
    	} else {
-   		$items = DB::table('articles')->where('section', '=', 'About-the-project')->get();
+   		$items = Article::published()->where('section', '=', 'About-the-project')->get();
    		$rootOfSections = DB::table('sections')->where('section', '=', 'About-the-project')->get();
    	}
 
