@@ -32,8 +32,8 @@ html, body {
 
 h1 {
 	font: 2.5em 'Playfair Display', serif;
-        margin-bottom: 50px;
-	text-align: center; 
+        margin-bottom: 50px
+; 
 }
 
 #content {

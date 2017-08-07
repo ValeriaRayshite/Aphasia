@@ -10,7 +10,7 @@
 				<td id="title">{{ $article->title_en}}</td>
 				<td id="category">{{ $article->section }}</td>
 				
-				@if (URL::current() == 'http://127.0.0.1:8000/all')
+				@if (URL::current() == 'http://aphasia.help/all')
 				<td id="published">
 					@if ($article->published == true)
 					<img src="img/success1.png">

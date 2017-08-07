@@ -62,14 +62,12 @@ class ArticlesController extends Controller
     public function store(HttpRequest $request)
     {
         $this->validate($request, [
-            'title_en' => 'required|unique:articles,title_en',
-            'title_ru' => 'required|unique:articles,title_ru',
-            'content_en' => 'required',
-            'content_ru' => 'required',
+            'title_en' => 'unique:articles,title_en',
+            'title_ru' => 'unique:articles,title_ru',
    ]);
 
         $article = new Article;
-        $article->slug = str_slug("'" . $request->title . "'", '-');
+        $article->slug = str_slug("'" . $request->title_en . "'", '-');
         $article->section = $request->section;
         $article->title_en = $request->title_en;
         $article->title_ru = $request->title_ru;
@@ -165,12 +163,7 @@ class ArticlesController extends Controller
      */
     public function update(HttpRequest $request, $id)
     {
-        $this->validate($request, [
-            'title_en' => 'required',
-            'title_ru' => 'required',
-            'content_en' => 'required',
-            'content_ru' => 'required',
-        ]);
+       
         Article::find($id)->update($request->all());
         return redirect()->route('all')
                         ->with('success','Product updated successfully');
