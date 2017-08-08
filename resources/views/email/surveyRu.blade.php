@@ -43,8 +43,8 @@
 	<tr>
 		<td>Образование</td>
 		<td>
-			@foreach ( $input['education'] as $education )
-				{{ $education }}<br>
+			@foreach ( $input['education'] as $educations )
+				{{ $educations}}<br>
 			@endforeach
 		</td>
 	</tr>

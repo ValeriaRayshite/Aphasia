@@ -15,7 +15,30 @@ class MailController extends Controller
     public function surveyRu(Request $request) {
     	$input = $request->all();
     //dd($input);
-    
+        
+	  $this->validate($request, [
+                'name' => 'required',
+		'you' => 'required',
+		'email' => 'required',
+		'age' => 'required',
+		'diagnosis' => 'required',
+		'handedness' => 'required',
+		'education' => 'required',
+		'profession' => 'required',
+		'native' => 'required',
+		'languages' => 'required',
+		'disorders' => 'required',
+		'comorbidities' => 'required',
+		'behavior' => 'required',
+		'understanding' => 'required',
+		'understandable' => 'required',
+		'reading' => 'required',
+		'writing' => 'required',
+		'reaction' => 'required',
+		'information' => 'required',
+	  ]);   
+
+
     	Mail::to('rayshite@gmail.com')->send(new SurveyRu($input));
     	return redirect()->back();
     }
@@ -23,6 +46,30 @@ class MailController extends Controller
     public function surveyEn(Request $request) {
     	$input = $request->all();
     //dd($input);
+
+
+	  $this->validate($request, [
+                'name' => 'required',
+		'you' => 'required',
+		'email' => 'required',
+		'age' => 'required',
+		'diagnosis' => 'required',
+		'handedness' => 'required',
+		'education' => 'required',
+		'profession' => 'required',
+		'native' => 'required',
+		'languages' => 'required',
+		'disorders' => 'required',
+		'comorbidities' => 'required',
+		'behavior' => 'required',
+		'understanding' => 'required',
+		'understandable' => 'required',
+		'reading' => 'required',
+		'writing' => 'required',
+		'reaction' => 'required',
+		'information' => 'required',
+	  ]);   
+
     
     	Mail::to('rayshite@gmail.com')->send(new SurveyEn($input));
     	return redirect()->back();
