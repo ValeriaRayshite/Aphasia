@@ -7,7 +7,7 @@ var editor_config = {
     'insertdatetime media table contextmenu paste code'
     ],
     menubar: false,
-    toolbar: "insertfile undo redo | styleselect | bullist numlist outdent indent | link image media",
+    toolbar: "insertfile undo redo | styleselect | bullist numlist outdent indent | link image media | code",
     relative_urls: false,
     file_browser_callback : function(field_name, url, type, win) {
       var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
