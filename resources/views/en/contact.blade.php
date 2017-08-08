@@ -24,20 +24,7 @@
 	{{ Form::submit('Send') }}
 	
 {{ Form::close() }}
+
     
-<form action="/contact" method="post">
+@endsection 
 
-	<label for="name">Name</label>
-	<input type="text" name="name">
-
-	<label for="email">E-Mail</label>
-	<input type="text" name="email">
-
-	<label for="message">Message</label>
-	<input type="textarea" name="message">
-
-	<input type="hidden" name="_Token" value="{{ csrf_token() }}">
-
-	<input type="submit" value="Send">
-	
-</form>

@@ -8,6 +8,8 @@ use Mail;
 use Aphasia\Mail\Survey;
 use Aphasia\Mail\SurveyRu;
 use Aphasia\Mail\SurveyEn;
+use Aphasia\Mail\ContactRu;
+use Aphasia\Mail\ContactEn;
 
 
 class MailController extends Controller

@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Aphasia.help</title>
     {{ HTML::style('css/right-menu.css') }}
     {{ HTML::style('css/page.css') }}
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300|Playfair+Display" rel="stylesheet">
@@ -13,20 +13,17 @@
 <body>
     <nav>
         <ul>
-            @if ($unit != 'For-patients-and-their-families') 
-                @foreach ($rootOfSections as $rootOfSection)
+            
+            @foreach ($rootOfSections as $rootOfSection)
                 <li><a href="{{ URL::route('section', array('lang'=>'ru', 'unit'=>$rootOfSection->section)) }}">{{ $rootOfSection->title_ru }}</a></li>
             @endforeach
-            @else
-                <li><a href="{{ URL::route('section', array('lang'=>'ru', 'unit'=>$unit)) }}">{{ $rootOfSections }}</a></li>
-            @endif
             
 
             @foreach ($items as $item) 
-            <li id='active'><a href="{{ URL::route('article', array('lang'=>'ru', 'unit'=>$item->section, 'slug'=>$item->slug)) }}">{{ $item->title_ru }}</a></li>
+	            <li id='active'><a href="{{ URL::route('article', array('lang'=>'ru', 'unit'=>$item->section, 'slug'=>$item->slug)) }}">{{ $item->title_ru }}</a></li>
             @endforeach
 
-            <li><a href="{{ URL::route('article', array('lang'=>'ru', 'unit'=>$item->section, 'slug'=>'contact')) }}"">Связаться с нами</a></li>
+            <li><a href="{{ URL::route('contact', array('lang'=>'ru', 'unit'=>$item->section)) }}"">Связаться с нами</a></li>
 
             <li><a href="{{ $url }}">English version</a></li>
         </ul>

@@ -110,12 +110,10 @@ class ArticlesController extends Controller
             $article = Article::published()->where('slug', $slug)->get(); 
 
             if ($lang == 'en') { 
-                $rootOfSections = 'For patients and their families';
                 $url = Request::url();
                 $url = str_replace('/en/', '/ru/', $url);
                 return view('en.article', ['items' => $items, 'rootOfSections' => $rootOfSections, 'article'=>$article])->with(array('url'=>$url, 'unit'=>$unit));
             } else {
-                $rootOfSections = 'Пациентам и их близким';
                 $url = Request::url();
                 $url = str_replace('/ru/', '/en/', $url);
                 return view('ru.article', ['items' => $items, 'rootOfSections' => $rootOfSections, 'article'=>$article])->with(array('url'=>$url, 'unit'=>$unit));

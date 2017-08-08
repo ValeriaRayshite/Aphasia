@@ -12,7 +12,7 @@
       @endforeach
     </ul>
   </div>
-
+@endif
 	
 <script>
 function showInputNamedEducation() {

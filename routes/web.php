@@ -36,7 +36,7 @@ Route::get('/survey', ['as' => 'survey', function() {
 
 
 Route::get('/{lang}/{unit}/contact', [
-  'as' => 'contact', 'uses' => 'ContactController@show'
+  'as' => 'contact', 'uses' => 'ContactController@root'
 ]);
 
 

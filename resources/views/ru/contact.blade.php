@@ -1,4 +1,4 @@
-@extends('en.layout')
+@extends('ru.layout')
 
 
 @section('content')

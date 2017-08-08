@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Aphasia.help</title>
     {{ HTML::style('css/right-menu.css') }}
     {{ HTML::style('css/page.css') }}
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300|Playfair+Display" rel="stylesheet">
@@ -13,19 +13,17 @@
     <nav>
         <ul>
         
-            @if ($unit != 'For-patients-and-their-families') 
-                @foreach ($rootOfSections as $rootOfSection)
+           
+            @foreach ($rootOfSections as $rootOfSection)
                 <li><a href="{{ URL::route('section', array('lang'=>'en', 'unit'=>$rootOfSection->section)) }}">{{ $rootOfSection->title_en }}</a></li>
             @endforeach
-            @else
-                <li><a href="{{ URL::route('section', array('lang'=>'en', 'unit'=>$unit)) }}">{{ $rootOfSections }}</a></li>
-            @endif
+           
 
             @foreach ($items as $item) 
             <li id='active'><a href="{{ URL::route('article', array('lang'=>'en', 'unit'=>$item->section, 'slug'=>$item->slug)) }}">{{ $item->title_en }}</a></li>
             @endforeach
             
-            <li><a href="{{ URL::route('contacten') }}">Contact us</a></li>
+            <li><a href="{{ URL::route('contact', array('lang'=>'en', 'unit'=>$item->section)) }}">Contact us</a></li>
 
             <li><a href="{{ $url }}">Русская версия</a></li>
         </ul>
