@@ -13,7 +13,7 @@
 				@if (URL::current() == 'http://aphasia.help/all')
 				<td id="published">
 					@if ($article->published == true)
-					<img src="img/success1.png">
+					<img src="img/published.png">
 					@endif
 				</td>
 				@endif
