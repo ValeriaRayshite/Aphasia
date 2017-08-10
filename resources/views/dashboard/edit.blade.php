@@ -23,13 +23,22 @@
 
     	<fieldset id="en">
 		<h2>En</h2>
-		 
+		<div id="checkbox">
+                         <input type="hidden" name="en" value="0" />
+                         <input type="checkbox" name="en" value="1" />
+                         <label for="en">English version</label>
+                </div> 
 		{!! Form::text('title_en', null, array('placeholder'=>'Title', 'class'=>'content')) !!} <br>
 		{!! Form::textarea('content_en', null, array('placeholder'=>'Content', 'rows'=>'10', 'class'=>'content')) !!}<br>
     	</fieldset>
 
     	<fieldset id="ru">
 		<h2>Ru</h2>
+		<div id="checkbox">
+                         <input type="hidden" name="ru" value="0" />
+                         <input type="checkbox" name="ru" value="1" />
+                         <label for="ru">Russian version</label>
+                </div>
 		{!! Form::text('title_ru', null, array('placeholder'=>'Title', 'class'=>'content')) !!}
 		{!! Form::textarea('content_ru', null, array('placeholder'=>'Content', 'rows'=>'10', 'class'=>'content')) !!}<br>
     	</fieldset>
@@ -41,7 +50,8 @@
 									 'About-the-project'=>'About the project']) !!}
 	
 	<div id="checkbox">
-	<input type="checkbox" id="published" name="published" value="1"/>
+	<input type="hidden" name="published" value="0" />
+        <input type="checkbox" id="published" name="published" value="1" />
 	<label for="published">Published</label>
 	</div>
 

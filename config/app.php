@@ -168,8 +168,7 @@ return [
          * Package Service Providers...
          */
 
-        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
+      
 
         /*
          * Application Service Providers...
@@ -233,7 +232,7 @@ return [
 
         'Form' => Collective\Html\FormFacade::class,
         'HTML' => Collective\Html\HtmlFacade::class,
-        'Image' => Intervention\Image\Facades\Image::class,
+
     ],
 
 ];

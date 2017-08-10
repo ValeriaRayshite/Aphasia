@@ -9,7 +9,7 @@ class Article extends Model
 {
 
 protected $table="articles";
-protected $fillable=['slug', 'section', 'title_en', 'title_ru', 'content_en', 'content_ru', 'published',];
+protected $fillable=['slug', 'section', 'en', 'ru', 'title_en', 'title_ru', 'content_en', 'content_ru', 'published',];
 
     public function showAll()
 	{
@@ -35,7 +35,7 @@ protected $fillable=['slug', 'section', 'title_en', 'title_ru', 'content_en', 'c
 	public function scopePublished($query)
 	{
 		$query->latest('id')
-			  ->where('published', '=', '1');
+			  ->where('published', '=', true);
 	}
 	
 	

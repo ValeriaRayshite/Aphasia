@@ -69,6 +69,8 @@ class ArticlesController extends Controller
         $article = new Article;
         $article->slug = str_slug("'" . $request->title_en . "'", '-');
         $article->section = $request->section;
+	$article->en = $request->en;
+	$article->ru = $request->ru;
         $article->title_en = $request->title_en;
         $article->title_ru = $request->title_ru;
         $article->content_en = $request->content_en;
@@ -95,46 +97,54 @@ class ArticlesController extends Controller
      */
     public function show(Article $articleModel, $lang, $unit, $slug)
     {
-        if ($unit == 'About-the-problem-of-aphasia') {
-            $items = Article::published()->where('section', '=', 'About-the-problem-of-aphasia')->get();
-            $rootOfSections = DB::table('sections')->where('section', '=', 'About-the-problem-of-aphasia')->get();
-           
+	
+	$en = Article::published()->where('slug', $slug)->get()->pluck('en')->toArray();
+        $ru = Article::published()->where('slug', $slug)->get()->pluck('ru')->toArray();
+        $article = Article::published()->where('slug', $slug)->get(); 
 
-        } else if ($unit == 'For-professionals-and-students') {
-            $items = Article::published()->where('section', '=', 'For-professionals-and-students')->get();
+        if ($unit == 'For-professionals-and-students') {
+            $items_ru = Article::published()
+		->where('section', '=', 'For-professionals-and-students')
+		->where('ru', '=', true)->get();
+
+	    $items_en = Article::published()
+		->where('section', '=', 'For-professionals-and-students')
+		->where('en', '=', true)->get();
+
             $rootOfSections = DB::table('sections')->where('section', '=', 'For-professionals-and-students')->get();
+	    
+
+
 
         } else if ($unit == 'For-patients-and-their-families') {
-            $items = Article::published()->where('section', '=', 'For-patients-and-their-families')->get();
-            $rootOfSections = DB::table('sections')->where('section', '=', 'For-patients-and-their-families')->get();
-            $article = Article::published()->where('slug', $slug)->get(); 
+            $items_ru = Article::published()
+		->where('section', '=', 'For-patients-and-their-families')
+		->where('ru', '=', 1)->get();
 
-            if ($lang == 'en') { 
-                $url = Request::url();
-                $url = str_replace('/en/', '/ru/', $url);
-                return view('en.article', ['items' => $items, 'rootOfSections' => $rootOfSections, 'article'=>$article])->with(array('url'=>$url, 'unit'=>$unit));
-            } else {
-                $url = Request::url();
-                $url = str_replace('/ru/', '/en/', $url);
-                return view('ru.article', ['items' => $items, 'rootOfSections' => $rootOfSections, 'article'=>$article])->with(array('url'=>$url, 'unit'=>$unit));
+	    $items_en = Article::published()
+		->where('section', '=', 'For-patients-and-their-families')
+		->where('en', '=', 1)->get();
+
+            $rootOfSections = DB::table('sections')->where('section', '=', 'For-patients-and-their-families')->get();                    
         }
-
-        } else {
-            $items = Article::published()->where('section', '=', 'About-the-project')->get();
-            $rootOfSections = DB::table('sections')->where('section', '=', 'About-the-project')->get();
-        }
-
-        $article = Article::published()->where('slug', $slug)->get(); 
-        //dd($article);
-
+//dd($items_ru);
         if ($lang == 'en') { 
-            $url = Request::url();
-            $url = str_replace('/en/', '/ru/', $url);
-            return view('en.article', ['items' => $items, 'rootOfSections' => $rootOfSections->all(), 'article'=>$article])->with(array('url'=>$url, 'unit'=>$unit));
+		if ($ru[0] == 0) {
+			$url = 0;
+		} else {
+	                $url = Request::url();
+           	        $url = str_replace('/en/', '/ru/', $url);
+		}
+            return view('en.article', ['items_ru' => $items_ru, 'items_en' => $items_en, 'rootOfSections' => $rootOfSections->all(), 'article'=>$article])->with(array('url'=>$url, 'unit'=>$unit));
         } else {
-            $url = Request::url();
-            $url = str_replace('/ru/', '/en/', $url);
-            return view('ru.article', ['items' => $items, 'rootOfSections' => $rootOfSections->all(), 'article'=>$article])->with(array('url'=>$url, 'unit'=>$unit));
+            if ($en[0] == 0) {
+                        $url = null;
+            } else {
+                        $url = Request::url();
+                        $url = str_replace('/ru/', '/en/', $url);
+            }
+
+            return view('ru.article', ['items_ru' => $items_ru, 'items_en' => $items_en, 'rootOfSections' => $rootOfSections->all(), 'article'=>$article])->with(array('url'=>$url, 'unit'=>$unit));
         }
 
     }
