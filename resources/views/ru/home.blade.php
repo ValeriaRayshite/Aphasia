@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+	<meta name="viewport" content="width=device-width">
 	<meta charset="UTF-8">
 	<title>Aphasia</title>
 	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
@@ -40,21 +41,23 @@
 </head>
 <body>
 <div id="lang-switch"><a href='{{ route('en') }}'>en</a> | <a href='{{ route('ru') }}'>ru</a></div>
-<figure>
-	{{ HTML::image("img/logo.png", "Logo", array( 'id' => "logo")) }}
-	{{ HTML::image("img/one.png", "", array( 'id' => "one")) }}
-	{{ HTML::image("img/two.png", "", array( 'id' => "two")) }}
-	{{ HTML::image("img/three.png", "", array( 'id' => "three")) }}
-</figure>
 
-<div>
-	<ul class="nav">
+<div id="wrapper">
+	<figure>
+		{{ HTML::image("img/logo.png", "Logo", array( 'id' => "logo")) }}
+		{{ HTML::image("img/one.png", "", array( 'id' => "one")) }}
+		{{ HTML::image("img/two.png", "", array( 'id' => "two")) }}
+		{{ HTML::image("img/three.png", "", array( 'id' => "three")) }}
+	</figure>
+
+<nav>		
+	<ul>
 		<li><a href="{{ URL::route('section', array('lang'=>'ru', 'unit'=>'About-the-problem-of-aphasia')) }}">О ПРОБЛЕМЕ<br> АФАЗИИ</a></li>
 		<li><a href="{{ URL::route('section', array('lang'=>'ru', 'unit'=>'For-professionals-and-students')) }}">СПЕЦИАЛИСТАМ<br>И СТУДЕНТАМ</a></li>
 		<li><a href="{{ URL::route('section', array('lang'=>'ru', 'unit'=>'For-patients-and-their-families')) }}">ПАЦИЕНТАМ И<br>ИХ БЛИЗКИМ</a></li>
 		<li><a href="{{ URL::route('section', array('lang'=>'ru', 'unit'=>'About-the-project')) }}">О ПРОЕКТЕ</a></li>
 	</ul>
-</div>
+</nav>
 
 	
 </body>

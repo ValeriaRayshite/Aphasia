@@ -21,25 +21,27 @@ time, mark, audio, video {
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=cyrillic');
 
+
+
+
 body, html {
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
+	overflow: auto;
 }
-
 
 /* Logo */
 
 figure {
 	width: 100%;
 	position: relative;
-	margin: 4% auto;
+	margin: 15% 0;
 }
 
 figure img#logo{
 	display: block;
 	width: 30%;
-	margin: auto;	
+	margin: 0 auto;	
 }
 
 #one, #two, #three {
@@ -71,143 +73,183 @@ figure img#logo{
 	animation: three 4s infinite;
 }
 
-
-/* Logo animation */
-
-@keyframes one {
-	
-	0% {
-		opacity: 1;
-	}
-
-  	16.6666667% {
-    	opacity: 0;
-  	}
-
-  	33.3333334% {
-    	opacity: 0;
-  	}
-
-  	50.0000001% {
-		opacity: 0;
-	}
-
-	66.6666668% {
-		opacity: 1;
-	}
-
-	83.3333335% {
-		opacity: 1;
-	}
-
-	100% {
-		opacity: 1;
-	}
-}
-
-@keyframes two {
-	
-	0% {
-		opacity: 1;
-	}
-
-    11.1111111% {
-    	opacity: 1;
-    }
-
-    27.7777778% {
-    	opacity: 0;
-    }
-
-    44.4444445% {
-		opacity: 0;
-	}
-
-	61.1111112% {
-		opacity: 0;
-	}
-
-	77.7777779% {
-		opacity: 1;
-	}
-
-	94.4444446% {
-		opacity: 1;
-	}
-
-	100% {
-		opacity: 1;
-	}
-}
-
-@keyframes three {
-
-	0% {
-		opacity: 1;
-	}
-	
-    22.2222222% {
-    	opacity: 1;
-    }
-
-    38.88888889% {
-		opacity: 0;
-	}
-
-	55.5555556% {
-		opacity: 0;
-	}
-
-	72.2222223% {
-		opacity: 0;
-	}
-
-	88.888889% {
-		opacity: 1;
-	}
-
-	100% {
-		opacity: 1;
-	}
-
-}
-
-
 /* Menu */
 
-.nav{
+nav ul{
     list-style:none;
     margin:0;
     padding:0;
     text-align:center;
 }
 
-.nav li{
-    display:inline;
-	
+nav ul li{
+    display: block;
+	margin-bottom: 5%;
+
 }
-.nav a{
-	vertical-align: top;  
-	color: #304e74;
-	font: 1.2em 'Open Sans Condensed', sans-serif;
+nav ul a{
+        vertical-align: top;  
+        color: #304e74;
+        font: 1.2em 'Open Sans Condensed', sans-serif;
     display:inline-block;
-    padding:10px;
+    padding: 1%;
     text-decoration: none;
 }
 
-.nav a:hover {
-	color: #0c2f5a;
-}	
+nav ul a:hover {
+        color: #0c2f5a;
+}  
+
+/* language switch */     
 
 #lang-switch {
-	color: #304e74;
-	position: absolute;
-	right: 3%;
-	top: 4%;
+        color: #304e74;
+        position: absolute;
+        right: 3%;
+        top: 4%;
 }
 
 #lang-switch a {
-	text-decoration: none;
-	color: #304e74;
-	font: 1.1em 'Open Sans Condensed', sans-serif;
+        text-decoration: none;
+        color: #304e74;
+        font: 1.1em 'Open Sans Condensed', sans-serif;
 }
+
+
+
+
+	/* Logo animation */
+
+@keyframes one {
+	0% {
+		opacity: 1;
+	}
+  	16.6666667% {
+	    	opacity: 0;
+  	}
+  	33.3333334% {
+    		opacity: 0;
+  	}
+  	50.0000001% {
+		opacity: 0;
+	}
+	66.6666668% {
+		opacity: 1;
+	}
+	83.3333335% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes two {
+	0% {
+		opacity: 1;
+	}
+        11.1111111% {
+    		opacity: 1;
+        }
+        27.7777778% {
+    		opacity: 0;
+        }
+        44.4444445% {
+		opacity: 0;
+	}
+	61.1111112% {
+		opacity: 0;
+	}
+	77.7777779% {
+		opacity: 1;
+	}
+	94.4444446% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes three {
+	0% {
+		opacity: 1;
+	}
+        22.2222222% {
+    		opacity: 1;
+        }
+        38.88888889% {
+		opacity: 0;
+	}
+	55.5555556% {
+		opacity: 0;
+	}
+	72.2222223% {
+		opacity: 0;
+	}
+	88.888889% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+
+
+                /* MOBILE DEVICE IN LANDSCAPE ORIENTATION */
+
+
+@media (min-width: 651px) and (max-width: 1000px) {
+
+        figure {
+                margin: 5% auto 5%;
+        }
+
+        nav {   
+                position:relative;
+                width: 70%;
+                margin: auto;
+        }
+        nav ul li {
+                float: right;
+                display: inline-block;
+                width: 50%;
+        }
+}
+
+
+@media (min-width: 651px) and (max-width: 1000px) and (orientation: portrait) {
+
+	figure {
+		margin: 30% auto 10%;
+	}
+
+	nav {   
+		position:relative;
+       	        width: 70%;
+		margin: auto;
+	}
+	nav ul li {
+		float: right;
+		display: inline-block;
+		width: 50%;
+	}
+}
+
+
+@media (min-width: 1001px) {
+
+	
+	figure {
+		margin: 5% auto 5%;
+	}
+
+	nav ul li {
+		display: inline;
+	}
+}
+
+
+
+
