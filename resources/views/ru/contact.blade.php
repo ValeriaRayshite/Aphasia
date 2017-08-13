@@ -4,6 +4,17 @@
 @section('content')
 
 
+@if (count($errors) > 0)
+  
+  <div class="alert alert-danger">
+  	<ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 {!! Form::open (['route' => 'contactrusend', 'method' => 'POST']) !!}
 
 	{{ Form::label('name', 'Имя') }}

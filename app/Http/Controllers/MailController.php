@@ -82,15 +82,26 @@ class MailController extends Controller
 
     public function contactRu(Request $request) {
         $input = $request->all();
-    //dd($input);
     
+	$this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+	    'message' => 'required',
+   	]);
+
         Mail::to('rayshite@gmail.com')->send(new ContactRu($input));
         return redirect()->back();
     }
 
+
     public function contactEn(Request $request) {
         $input = $request->all();
-    //dd($input);
+   
+	$this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required',
+        ]);
     
         Mail::to('rayshite@gmail.com')->send(new ContactEn($input));
         return redirect()->back();
