@@ -97,6 +97,17 @@ class ArticlesController extends Controller
      */
     public function show(Article $articleModel, $lang, $unit, $slug)
     {
+	$allSlugs_ru = DB::table('articles')->where('ru', '=', 1)->get()->pluck('slug')->toArray();    
+        $allSlugs_en = DB::table('articles')->where('en', '=', 1)->get()->pluck('slug')->toArray();
+
+	if (($lang != "ru") and ($lang != "en")) {
+		return view('errors.404');
+	} else if (($lang == "en") and (!(in_array($slug, $allSlugs_en)))) {
+		return view('errors.404');
+	} else if (($lang == "ru") and (!(in_array($slug, $allSlugs_ru)))) {
+		return view('errors.404');
+	}
+		
 	
 	$en = Article::published()->where('slug', $slug)->get()->pluck('en')->toArray();
         $ru = Article::published()->where('slug', $slug)->get()->pluck('ru')->toArray();
