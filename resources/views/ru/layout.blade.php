@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <meta name="viewport" content="width=device-width">
     <meta charset="UTF-8">
     <title>Aphasia.help</title>
     {{ HTML::style('css/right-menu.css') }}
@@ -40,9 +41,17 @@
 
 </head>
 <body>
-    <nav>
+
+   <div id="panel">
+        {{ HTML::image("img/menu.png", "Menu", array('title' => 'Меню раздела', 'id' => 'menu', 'onclick' => 'openLeftMenu()')) }}
+        {{ HTML::image("img/arrow.png", "Arrow", array('title' => 'Наверх', 'id' => 'arrow', 'onclick' => 'scrollToTop()')) }}
+        {{ HTML::image("img/logo-min.png", "Logo", array('title' => 'Меню сайта', 'id' => 'logo', 'onclick' => 'openRightMenu()')) }}
+   </div>
+
+    <nav id="left-menu">
         <ul>
-            
+
+	    <li><a href="javascript:void(0)" class="closebtn" onclick="closeLeftMenu()">&times;</a></li>             
             @foreach ($rootOfSections as $rootOfSection)
                 <li><a href="{{ URL::route('section', array('lang'=>'ru', 'unit'=>$rootOfSection->section)) }}">{{ $rootOfSection->title_ru }}</a></li>
             @endforeach
@@ -62,14 +71,13 @@
 
         </ul>
     </nav>
-    {{ HTML::image("img/logo-min.png", "Logo", array('id' => 'logo', 'onclick' => 'openNav()')) }}
 
     <div id="content">
       @yield('content')
     </div>
    
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div id="right-menu" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeRightMenu()">&times;</a>
         <a href="{{ URL::route('section', array('lang'=>'ru', 'unit'=>'About-the-problem-of-aphasia')) }}">О ПРОБЛЕМЕ<br> АФАЗИИ</a>
         <a href="{{ URL::route('section', array('lang'=>'ru', 'unit'=>'For-professionals-and-students')) }}">СПЕЦИАЛИСТАМ<br>И СТУДЕНТАМ</a>
         <a href="{{ URL::route('section', array('lang'=>'ru', 'unit'=>'For-patients-and-their-families')) }}">ПАЦИЕНТАМ И<br>ИХ БЛИЗКИМ</a>
@@ -77,6 +85,10 @@
     </div>
     <footer><div>2017 &copy; all rights reserved.</div></footer>
     {{ HTML::script('js/right-menu.js') }}
+    {{ HTML::script('js/scroll-top.js') }}
+
+
+
 </body>
 
 </html>

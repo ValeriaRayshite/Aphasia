@@ -51,25 +51,25 @@ figure img#logo{
 
 #one {
 	right: 45%;
-	top: 57%;
+	top: 62%;
 	height: auto;
-	width: 1.9%;
+	width: .4%;
 	animation: one 4s infinite;
 }
 
 #two {
-	right: 43.5%;
-	top: 55%;
+	right: 44%;
+	top: 60%;
 	height: auto;
-	width: 2.8%;
+	width: .6%;
 	animation: two 4s infinite;
 }
 
 #three {
-	right: 42%;
-	top: 53%;
+	right: 43%;
+	top: 58%;
 	height: auto;
-	width: 3%;
+	width: .75%;
 	animation: three 4s infinite;
 }
 

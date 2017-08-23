@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width">
     <meta charset="UTF-8">
     <title>Aphasia.help</title>
     {{ HTML::style('css/right-menu.css') }}
@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT|Open+Sans+Condensed:300&amp;subset=cyrillic" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     {{ HTML::script('js/left-menu.js') }}
+   
 
     <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
@@ -41,10 +42,16 @@
 
 </head>
 <body>
-    <nav>
+   <div id="panel">
+	{{ HTML::image("img/menu.png", "Menu", array('title' => 'Menu of chapter', 'id' => 'menu', 'onclick' => 'openLeftMenu()')) }}
+	{{ HTML::image("img/arrow.png", "Arrow", array('title' => 'To top', 'id' => 'arrow', 'onclick' => 'scrollToTop()')) }}
+	{{ HTML::image("img/logo-min.png", "Logo", array('title' => 'Menu of website', 'id' => 'logo', 'onclick' => 'openRightMenu()')) }}
+   </div>
+
+    <nav id="left-menu">
         <ul>
         
-           
+	    <li><a href="javascript:void(0)" class="closebtn" onclick="closeLeftMenu()">&times;</a></li>           
             @foreach ($rootOfSections as $rootOfSection)
                 <li><a href="{{ URL::route('section', array('lang'=>'en', 'unit'=>$rootOfSection->section)) }}">{{ $rootOfSection->title_en }}</a></li>
             @endforeach
@@ -64,15 +71,15 @@
 
         </ul>
     </nav>
-    {{ HTML::image("img/logo-min.png", "Logo", array('id' => 'logo', 'onclick' => 'openNav()')) }}
+   
 
     <div id="content">
       @yield('content')
     </div>
   
     
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div id="right-menu" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeRightMenu()">&times;</a>
         <a href="{{ URL::route('section', array('lang'=>'en', 'unit'=>'About-the-problem-of-aphasia')) }}">ABOUT THE PROBLEM<br>OF APHASIA</a>
         <a href="{{ URL::route('section', array('lang'=>'en', 'unit'=>'For-professionals-and-students')) }}">FOR PROFESSIONALS<br>AND STUDENTS</a>
         <a href="{{ URL::route('section', array('lang'=>'en', 'unit'=>'For-patients-and-their-families')) }}">FOR PATIENTS<br>AND THEIR FAMILIES</a>
@@ -80,5 +87,7 @@
     </div>
     <footer><p>2017 &copy; all rights reserved.</p></footer>
     {{ HTML::script('js/right-menu.js') }}
+    {{ HTML::script('js/scroll-top.js') }}
+
 </body>
 </html>

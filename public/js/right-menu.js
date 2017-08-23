@@ -1,15 +1,14 @@
-//document.body.addEventListener('click', function closeNav() {
-//    document.getElementById("mySidenav").style.width = "0";
-//}); 
+function openRightMenu() {
 
-function openNav() {
-    document.getElementById("mySidenav").style.width = "200px";
+	if (window.innerWidth > 1000) {
+	    document.getElementById("right-menu").style.width = "200px";
+	} else {
+	    document.getElementById("right-menu").style.width = "100%";
+	}
 }
 
-
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
+function closeRightMenu() {
+        document.getElementById("right-menu").style.width = "0";
 }
-
 
 
